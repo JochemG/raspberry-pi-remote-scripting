@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const { viewEditScript } = require('./templates/viewEditScript');
 const { listScripts } = require('./templates/listScripts');
+const { home } = require('./templates/home');
 const { listLogs } = require('./templates/listLogs');
 const scriptLifecycle = require('./scriptLifecycle');
 const scriptHelpers = require('./scriptHelpers');
@@ -12,7 +13,10 @@ const {getActiveLogFile, log} = scriptHelpers('///index///');
 global.rootDir = __dirname;
 
 function handleGUI(req, res) {
-    if (req.url === '/scripts') {
+    if (req.url === '/') {
+        home(req, res);
+    }
+    else if (req.url === '/scripts') {
         listScripts(req, res);
     }
     else if (req.url.startsWith('/logs')) {
