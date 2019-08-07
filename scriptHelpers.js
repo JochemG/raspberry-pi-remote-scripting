@@ -12,7 +12,7 @@ class ScriptHelpers {
     constructor(scriptName) {
         this.scriptName = scriptName;
         this.gpio = gpio;
-        this.gpiop = gpio.gpiop;
+        this.gpiop = gpio.promise;
         this.log = this.log.bind(this);
         this.interval = this.interval.bind(this);
         this.timeout = this.timeout.bind(this);

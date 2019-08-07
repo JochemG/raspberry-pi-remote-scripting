@@ -34,7 +34,7 @@ Instances of ScriptHelper provides functions that keep scripts concise, predicta
 * wait: (milliseconds) => Promise
    * Promisified setTimeout. Example: "async () => { log('Start'); await wait(5000); log('Done');
 * gpio: require('rpi-gpio')
-* gpiop: require('rpi-gpio').gpiop
+* gpiop: require('rpi-gpio').promise
 
 ### Future
 * Webpages
