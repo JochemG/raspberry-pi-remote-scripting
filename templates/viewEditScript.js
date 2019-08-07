@@ -11,8 +11,17 @@ function save() {
         body: value
     });
 }
+
 function execute() {
-    window.location.pathname = '/execute' + window.location.pathname;
+    fetch('/execute' + window.location.pathname, {
+        method: 'GET'
+    });
+}
+
+function stopAllScripts() {
+    fetch('/stop/scripts', {
+        method: 'GET'
+    })
 }`;
 
 const edit = (fileContent) => `
@@ -20,6 +29,7 @@ const edit = (fileContent) => `
 ${fileContent}
 </textarea>
 <button onclick="execute()">Execute</button>
+<button onclick="stopAllScripts()">Stop all scripts</button>
 <button onclick="save()">Save</button>`;
 
 module.exports.viewEditScript = (req, res) => {

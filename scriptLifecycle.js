@@ -14,9 +14,12 @@ function onStart() {
 }
 
 function onStop() {
+    const activeScript = getActiveScriptName() || '';
+    const scriptHelper = scriptHelpers(activeScript.replace(__dirname, ''));
     if (getActiveScript() && getActiveScript().onStop) {
-        getActiveScript().onStop(scriptHelpers(getActiveScriptName().replace(__dirname, '')));
+        getActiveScript().onStop(scriptHelper);
     }
+    scriptHelper.clearEvents();
 }
 
 
@@ -26,3 +29,5 @@ module.exports.setActiveScript = (newActiveScriptPath) => {
     setScript(newActiveScriptPath, require(newActiveScriptPath));
     onStart()
 };
+
+module.exports.stop = onStop;

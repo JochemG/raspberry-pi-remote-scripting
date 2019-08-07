@@ -24,9 +24,13 @@ function handleGUI(req, res) {
     }
     else if (req.url.startsWith('/execute/scripts')) {
         const file = path.join(__dirname, req.url.replace('/execute', ''));
-        scriptLifecycle.setActiveScript(file);
         log('Executing ' + file);
-        res.writeHead(302, {'Location': '/logs/' + getActiveLogFile()});
+        scriptLifecycle.setActiveScript(file);
+        res.end();
+    }
+    else if (req.url ===  '/stop/scripts') {
+        scriptLifecycle.stop();
+        log('Stopped all scripts');
         res.end();
     }
     else if (req.url.startsWith('/scripts')) {
