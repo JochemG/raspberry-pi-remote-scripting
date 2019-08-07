@@ -1,6 +1,6 @@
 {
   "name": "raspberry-pi-remote-scripting",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Remote NodeJS script management. Push/(re)start/stop/track NodeJS scripts from any browser on the PI's network.",
   "main": "index.js",
   "scripts": {
