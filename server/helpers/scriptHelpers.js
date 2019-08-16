@@ -24,10 +24,11 @@ class ScriptHelpers {
         if (!activeLogFile) {
             activeLogFile = Date.now();
         }
-        const logEntry = ["\r\n", this.scriptName, Date.now(), message].join("------");
+        const logEntry = [Date.now(), this.scriptName, message].join("------");
         const logPath = path.join(__dirname, "logs", activeLogFile + ".log");
+        console.log(logEntry);
 
-        fs.appendFileSync(logPath, logEntry);
+        fs.appendFileSync(logPath, "\r\n" + logEntry);
     }
 
     getActiveLogFile() {
