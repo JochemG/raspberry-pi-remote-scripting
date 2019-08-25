@@ -10,7 +10,8 @@
     "ui-dev": "run-p ui-start:dev ui-autobuild",
     "ui-start": "sirv public --single",
     "ui-start:dev": "sirv public --single --dev",
-    "server-start": "node server/index.js"
+    "server-start": "node server/index.js",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
