@@ -11,7 +11,8 @@
     "ui-start": "sirv public --single",
     "ui-start:dev": "sirv public --single --dev",
     "server-start": "node server/index.js",
-    "start": "node server/index.js"
+    "build": "npm run ui-build",
+    "start": "npm run server-start"
   },
   "repository": {
     "type": "git",
