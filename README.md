@@ -29,12 +29,19 @@ Instances of ScriptHelper provides functions that keep scripts concise, predicta
    * Adds an entry to the logs.
 * interval: (...setIntervalArgs) => intervalId: number
    * Wraps around setInterval, but ensures that clearInterval is executed onStop.
+   * Highly recommend using this instead of setInterval. Calls clearInterval on stop/reboot.
 * timeout: (...setTimeoutArgs) => timeouteId: number
    * Wraps around setTimeout, but ensures that clearTimeout is executed onStop.
+   * Highly recommend using this instead of setTimeout. Calls clearTimeout on stop/reboot.
 * wait: (milliseconds) => Promise
    * Promisified setTimeout. Example: "async () => { log('Start'); await wait(5000); log('Done');
+   * Highly recommend using this instead of setTimeout. Calls clearTimeout on stop/reboot.
 * gpio: require('rpi-gpio')
+   * Highly recommend using the script helper instead of manually importing for cleaning up on stop/reboot.
 * gpiop: require('rpi-gpio').promise
+   * Highly recommend using the script helper instead of manually importing for cleaning up on stop/reboot.
+* pigpio: require('pigpio')
+   * Highly recommend using the script helper instead of manually importing for cleaning up on stop/reboot.
 
 ### Future
 * Webpages
