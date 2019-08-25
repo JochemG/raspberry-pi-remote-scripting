@@ -1,6 +1,7 @@
 const fs = require("./fsNoError");
 const path = require("path");
 const gpio = require("rpi-gpio");
+const pigpio = require("pigpio");
 let activeLogFile;
 let logPerFileCounter = 0;
 
@@ -13,6 +14,7 @@ class ScriptHelpers {
         this.scriptName = scriptName;
         this.gpio = gpio;
         this.gpiop = gpio.promise;
+        this.pigpio = pigpio;
         this.log = this.log.bind(this);
         this.interval = this.interval.bind(this);
         this.timeout = this.timeout.bind(this);

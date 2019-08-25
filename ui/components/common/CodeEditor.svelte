@@ -1,13 +1,14 @@
 <script>
-    import { createEventDispatcher } from 'svelte';
+    import {createEventDispatcher} from "svelte";
+
     export let code = "";
     export let className = "";
 
     const dispatch = createEventDispatcher();
-    $: dispatch('change', { code });
+    $: dispatch("change", {code});
     const RESERVED_KEYWORDS = /(const|let|var|function|if|else|async|await)/g;
     $: syntaxedCode = code
-            .replace(RESERVED_KEYWORDS, '<span class="reserved">$1</span>');
+            .replace(RESERVED_KEYWORDS, "<span class=\"reserved\">$1</span>");
 </script>
 
 <style>
@@ -52,15 +53,19 @@
         font-weight: bold;
     }
 
-    code > .input {
+    code > .output > .input {
         color: transparent;
         background-color: transparent;
         caret-color: black;
         resize: none;
+        width: 100%;
+        height: 100%;
     }
 </style>
 
-<code class="{className}">
-    <pre class="output">{@html syntaxedCode}</pre>
-    <textarea class="input" bind:value="{code}"></textarea>
+<code class="{className}" spellcheck="false">
+    <pre class="output">
+        {@html syntaxedCode}
+        <textarea class="input" bind:value="{code}"></textarea>
+    </pre>
 </code>
